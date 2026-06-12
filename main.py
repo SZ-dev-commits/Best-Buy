@@ -17,9 +17,9 @@ third_one_free = promotions.ThirdOneFree("Third One Free!")
 thirty_percent = promotions.PercentDiscount("30% off!", percent=30)
 
 """Assign promotions to specific products"""
-product_list[0].set_promotion(second_half_price)
-product_list[1].set_promotion(third_one_free)
-product_list[3].set_promotion(thirty_percent)
+product_list[0].promotion = second_half_price
+product_list[1].promotion = third_one_free
+product_list[3].promotion = thirty_percent
 
 best_buy = store.Store(product_list)
 
@@ -39,7 +39,7 @@ def start(store_obj):
             print("\nAvailable Products:")
             active_items = store_obj.get_all_products()
             for i, p in enumerate(active_items, 1):
-                print(f"{i}. {p.show()}")
+                print(f"{i}. {p}")
 
         elif choice == "2":
             total_items = store_obj.get_total_quantity()
@@ -55,7 +55,7 @@ def start(store_obj):
             while True:
                 print("\nWhat do you want to buy? (Press Enter to finish)")
                 for i, p in enumerate(active_items, 1):
-                    print(f"{i}. {p.show()}")
+                    print(f"{i}. {p}")
 
                 prod_idx = input("Product number: ").strip()
                 if not prod_idx:
